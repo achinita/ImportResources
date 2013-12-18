@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <PublishUrlHistory>C:\Users\achinita\Documents\GitHub\ImportResources\|publish\</PublishUrlHistory>
-    <InstallUrlHistory />
+    <PublishUrlHistory>C:\Users\achinita\Documents\GitHub\ImportResources\|https://github.com/achinita/ImportResources/blob/master/|publish\</PublishUrlHistory>
+    <InstallUrlHistory>http://github.com/achinita/ImportResources/raw/master/|https://github.com/achinita/ImportResources/raw/master/|https://github.com/achinita/ImportResources/blob/master/</InstallUrlHistory>
     <SupportUrlHistory />
-    <UpdateUrlHistory />
+    <UpdateUrlHistory>https://github.com/achinita/ImportResources/</UpdateUrlHistory>
     <BootstrapperUrlHistory />
     <ErrorReportUrlHistory />
     <FallbackCulture>en-US</FallbackCulture>
