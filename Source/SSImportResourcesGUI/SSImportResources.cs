@@ -432,7 +432,7 @@ namespace SSImportResourcesGUI
 
         private void lblAuthor_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start("http://www.outsystems.com/Profile/441/antonio-chinita/");
+            Process.Start("http://www.outsystems.com/forums/discussion/11187/tool-batch-import-resources/");
         }
 
         private void treeView_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
@@ -466,6 +466,11 @@ namespace SSImportResourcesGUI
 
                 e.Cancel = (result == DialogResult.No);
             }
+        }
+
+        private void lnkGithub_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://github.com/achinita/ImportResources/");
         }
     }
 }

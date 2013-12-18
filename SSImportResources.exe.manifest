@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SSImportResources.exe" size="58880">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SSImportResources.exe" size="59392">
       <assemblyIdentity name="SSImportResources" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>mcFmGhv6juCSujSJFQ6Rjp7S7xg=</dsig:DigestValue>
+        <dsig:DigestValue>hrce2z+pGCkVIZVHvwC3Vm2oBOQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

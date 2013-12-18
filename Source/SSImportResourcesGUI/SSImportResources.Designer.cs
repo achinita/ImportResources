@@ -51,6 +51,7 @@
             this.lblOML = new System.Windows.Forms.Label();
             this.lblVersion = new System.Windows.Forms.Label();
             this.treeView = new System.Windows.Forms.TreeView();
+            this.lnkGithub = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -200,12 +201,12 @@
             // 
             this.lblAuthor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblAuthor.AutoSize = true;
-            this.lblAuthor.Location = new System.Drawing.Point(733, 361);
+            this.lblAuthor.Location = new System.Drawing.Point(806, 361);
             this.lblAuthor.Name = "lblAuthor";
-            this.lblAuthor.Size = new System.Drawing.Size(146, 13);
+            this.lblAuthor.Size = new System.Drawing.Size(72, 13);
             this.lblAuthor.TabIndex = 15;
             this.lblAuthor.TabStop = true;
-            this.lblAuthor.Text = "António Chinita @ Community";
+            this.lblAuthor.Text = "@ Community";
             this.lblAuthor.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblAuthor_LinkClicked);
             // 
             // panel1
@@ -298,11 +299,24 @@
             this.treeView.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.treeView_AfterCheck);
             this.treeView.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView_NodeMouseDoubleClick);
             // 
+            // lnkGithub
+            // 
+            this.lnkGithub.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lnkGithub.AutoSize = true;
+            this.lnkGithub.Location = new System.Drawing.Point(573, 361);
+            this.lnkGithub.Name = "lnkGithub";
+            this.lnkGithub.Size = new System.Drawing.Size(227, 13);
+            this.lnkGithub.TabIndex = 21;
+            this.lnkGithub.TabStop = true;
+            this.lnkGithub.Text = "https://github.com/achinita/ImportResources/";
+            this.lnkGithub.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkGithub_LinkClicked);
+            // 
             // SSImportResources
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(891, 380);
+            this.Controls.Add(this.lnkGithub);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblAuthor);
@@ -353,6 +367,7 @@
         private System.Windows.Forms.Label lblOML;
         private System.Windows.Forms.Label lblVersion;
         private System.Windows.Forms.TreeView treeView;
+        private System.Windows.Forms.LinkLabel lnkGithub;
     }
 }
 
