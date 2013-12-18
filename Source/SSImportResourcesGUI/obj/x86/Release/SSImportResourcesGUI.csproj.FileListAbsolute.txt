@@ -16,3 +16,5 @@ C:\Users\achinita\documents\visual studio 2010\Projects\SSImportResourcesGUI\SSI
 C:\Users\achinita\documents\visual studio 2010\Projects\SSImportResourcesGUI\SSImportResourcesGUI\obj\x86\Release\SSImportResourcesGUI.SSImportResources.resources
 C:\Users\achinita\documents\visual studio 2010\Projects\SSImportResourcesGUI\SSImportResourcesGUI\obj\x86\Release\GenerateResource.read.1.tlog
 C:\Users\achinita\documents\visual studio 2010\Projects\SSImportResourcesGUI\SSImportResourcesGUI\obj\x86\Release\GenerateResource.write.1.tlog
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\SSImportResourcesGUI\obj\x86\Release\SSImportResourcesGUI.exe
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\SSImportResourcesGUI\obj\x86\Release\SSImportResourcesGUI.pdb

@@ -1,0 +1,13 @@
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\SSImportResourcesGUI\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\SSImportResourcesGUI\obj\x86\Release\SSImportResourcesGUI.Properties.Resources.resources
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\SSImportResourcesGUI\obj\x86\Release\SSImportResourcesGUI.SSImportResources.resources
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\SSImportResourcesGUI\obj\x86\Release\GenerateResource.read.1.tlog
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\SSImportResourcesGUI\obj\x86\Release\GenerateResource.write.1.tlog
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\SSImportResourcesGUI\bin\Release\SSImportResources.exe.manifest
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\SSImportResourcesGUI\bin\Release\SSImportResources.application
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\SSImportResourcesGUI\bin\Release\SSImportResources.exe
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\SSImportResourcesGUI\bin\Release\SSImportResources.pdb
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\SSImportResourcesGUI\obj\x86\Release\SSImportResources.exe.manifest
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\SSImportResourcesGUI\obj\x86\Release\SSImportResources.application
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\SSImportResourcesGUI\obj\x86\Release\SSImportResources.exe
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\SSImportResourcesGUI\obj\x86\Release\SSImportResources.pdb

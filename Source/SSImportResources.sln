@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual C# Express 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSImportResourcesGUI", "SSImportResourcesGUI\SSImportResourcesGUI.csproj", "{FD53C3D0-6D7E-47AA-BC4F-D796D1921E8A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSImportResources", "SSImportResourcesGUI\SSImportResources.csproj", "{FD53C3D0-6D7E-47AA-BC4F-D796D1921E8A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

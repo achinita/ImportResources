@@ -16,3 +16,16 @@ C:\Users\achinita\documents\visual studio 2010\Projects\SSImportResourcesGUI\SSI
 C:\Users\achinita\documents\visual studio 2010\Projects\SSImportResourcesGUI\SSImportResourcesGUI\obj\x86\Debug\SSImportResourcesGUI.SSImportResources.resources
 C:\Users\achinita\documents\visual studio 2010\Projects\SSImportResourcesGUI\SSImportResourcesGUI\obj\x86\Debug\GenerateResource.read.1.tlog
 C:\Users\achinita\documents\visual studio 2010\Projects\SSImportResourcesGUI\SSImportResourcesGUI\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\SSImportResourcesGUI\obj\x86\Debug\SSImportResourcesGUI.exe
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\SSImportResourcesGUI\obj\x86\Debug\SSImportResourcesGUI.pdb
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\SSImportResourcesGUI\bin\Debug\SSImportResourcesGUI.exe.manifest
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\SSImportResourcesGUI\bin\Debug\SSImportResourcesGUI.application
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\SSImportResourcesGUI\bin\Debug\SSImportResourcesGUI.exe
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\SSImportResourcesGUI\bin\Debug\SSImportResourcesGUI.pdb
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\SSImportResourcesGUI\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\SSImportResourcesGUI\obj\x86\Debug\SSImportResourcesGUI.Properties.Resources.resources
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\SSImportResourcesGUI\obj\x86\Debug\SSImportResourcesGUI.SSImportResources.resources
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\SSImportResourcesGUI\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\SSImportResourcesGUI\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\SSImportResourcesGUI\obj\x86\Debug\SSImportResourcesGUI.exe.manifest
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\SSImportResourcesGUI\obj\x86\Debug\SSImportResourcesGUI.application
