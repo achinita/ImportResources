@@ -123,6 +123,7 @@
             this.tvImages.Images.SetKeyName(0, "package.png");
             this.tvImages.Images.SetKeyName(1, "Document-Blank-icon.png");
             this.tvImages.Images.SetKeyName(2, "Folder-icon.png");
+            this.tvImages.Images.SetKeyName(3, "ResImport.ico");
             // 
             // lblInfo
             // 
@@ -317,6 +318,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtSSPath);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SSImportResources";
             this.Text = "Import Resources";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
