@@ -10,6 +10,7 @@ using Microsoft.Win32;
 using System.IO;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using ServiceCenter_Connect;
 
 namespace SSImportResourcesGUI
 {
@@ -17,6 +18,10 @@ namespace SSImportResourcesGUI
     {
         NodeInfo TreeData = new NodeInfo();
         DateTime OperationStartedOn = new DateTime();
+        TreeNode _rootNode = new TreeNode("eSpace", 4, 4);
+
+        ServiceCenter ssConnect = new ServiceCenter();
+
         string _rtf = @"{\rtf1\ansi\deff0{\fonttbl{\f0\fnil\fcharset0 Consolas;}}\viewkind4\uc1\pard\lang2070\f0\fs17";
 
 
@@ -48,16 +53,32 @@ namespace SSImportResourcesGUI
             txtLog.SelectionStart = txtLog.Text.Length;
             txtLog.ScrollToCaret();
         }
-        private void getFileVersion()
+        private void getFileVersion(bool OutputSSToConsole)
         {
-            FileVersionInfo fv = FileVersionInfo.GetVersionInfo(txtSSPath.Text);
-            debug("Using Service Studio <b>" + fv.ProductVersion+"</b>");
-            lblVersion.Text = "Service Studio " + fv.ProductVersion;
+            bool hasSSPath = (txtSSPath.Text != "");
+            bool hasOml = (txtOML.Text != "");
+
+            string ssVersion = "";
+            if (hasSSPath)
+            {
+                FileVersionInfo fv = FileVersionInfo.GetVersionInfo(txtSSPath.Text);
+                ssVersion = fv.ProductVersion;
+                if (OutputSSToConsole) debug("Using Service Studio <b>" + ssVersion + "</b>");
+                lblVersion.Text = "Service Studio " + ssVersion;
+            }
+            else lblVersion.Text = "";
+
+            if (hasOml)
+            {
+                _rootNode.Text = Path.GetFileName(txtOML.Text).Replace(Path.GetExtension(txtOML.Text),"");
+            }
+            else _rootNode.Text = "eSpace";
         }
 
         [DllImport("uxtheme.dll", CharSet = CharSet.Unicode)]
         private extern static int SetWindowTheme(IntPtr hWnd, string pszSubAppName,
                                                 string pszSubIdList);
+
 
         private void SSImportResources_Load(object sender, EventArgs e)
         {
@@ -65,7 +86,12 @@ namespace SSImportResourcesGUI
 
             lblStatus.Text = "";
             lblVersion.Text = "";
-            lblOML.Text = "";
+
+            //Init Root Node
+            _rootNode.Tag = newNodeTag(false, false, "");
+            _rootNode.Expand();
+            treeView.Nodes.Add(_rootNode);
+            HideCheckBox(treeView, _rootNode);
 
             //Init Service Studio Path
             RegistryKey rk = Registry.ClassesRoot;
@@ -77,7 +103,7 @@ namespace SSImportResourcesGUI
             if (txtSSPath.Text != "")
             {
                 debug("Loaded Service Studio Path from registry.");
-                getFileVersion();
+                getFileVersion(true);
             }
 
             Form.ActiveForm.MaximizeBox = false;
@@ -100,7 +126,7 @@ namespace SSImportResourcesGUI
                 if (Path.GetFileName(ssFind.FileName.ToLower()) == "servicestudio.exe")
                 {
                     txtSSPath.Text = ssFind.FileName;
-                    getFileVersion();
+                    getFileVersion(true);
                 }
                 else
                 {
@@ -129,8 +155,7 @@ namespace SSImportResourcesGUI
                 string ext = Path.GetExtension(ssFind.FileName.ToLower());
                 if (ext == ".oml")
                 {
-                    txtOML.Text = ssFind.FileName;
-                    lblOML.Text = Path.GetFileName(ssFind.FileName);
+                    importOML(ssFind.FileName);
                 }
                 else
                 {
@@ -153,12 +178,18 @@ namespace SSImportResourcesGUI
             if (ssFind.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 txtFolder.Text = ssFind.SelectedPath;
-                treeView.Nodes.Clear();
+                _rootNode.Nodes.Clear();
 
-                treeView.Nodes.AddRange(tvFolder(txtFolder.Text));
+                _rootNode.Nodes.AddRange(tvFolder(txtFolder.Text, contextFileNode));
                 getTreeInfo();
+                _rootNode.ExpandAll();
                 
             }
+        }
+        private void importOML (string path)
+        {
+            txtOML.Text = path;
+            getFileVersion(false);
         }
         private void getTreeInfo()
         {
@@ -178,7 +209,7 @@ namespace SSImportResourcesGUI
         }
         private void UpdateFileCount()
         {
-            lblInfo.Text = "Files: " + TreeData.selectedFiles + "/" + TreeData.totalFiles;
+            lblSelectionCount.Text = TreeData.selectedFiles + "/" + TreeData.totalFiles;
         }
         private struct NodeInfo
         {
@@ -189,7 +220,7 @@ namespace SSImportResourcesGUI
         {
             NodeInfo _out = new NodeInfo();
 
-            if (Path.GetExtension(node.Tag.ToString()) == "") HideCheckBox(treeView, node);
+            if (!getNodeTag(node).isFile) HideCheckBox(treeView, node);
             else
             {
                 _out.totalFiles++;
@@ -242,7 +273,26 @@ namespace SSImportResourcesGUI
             SendMessage(tvw.Handle, TVM_SETITEM, IntPtr.Zero, ref tvi);
         }
         #endregion
-        private static TreeNode[] tvFolder(string path)
+        private struct NodeTag
+        {
+            public bool isFile;
+            public bool deployFile;
+            public string path;
+        }
+        private static NodeTag newNodeTag(bool isFile, bool deploy, string path)
+        {
+            NodeTag _out = new NodeTag();
+            _out.isFile = isFile;
+            _out.deployFile = deploy;
+            _out.path = path;
+
+            return _out;
+        }
+        private NodeTag getNodeTag(TreeNode node)
+        {
+            return (NodeTag)node.Tag;
+        }
+        private static TreeNode[] tvFolder(string path, ContextMenuStrip menu)
         {
             string[] subDirs = Directory.GetDirectories(path);
             string[] files = Directory.GetFiles(path);
@@ -253,11 +303,11 @@ namespace SSImportResourcesGUI
             {
                 TreeNode folderNode = new TreeNode(Path.GetFileName(s));
                 folderNode.Expand();
-                folderNode.ImageIndex = 2;
-                folderNode.SelectedImageIndex = 2;
+                folderNode.ImageIndex = 1;
+                folderNode.SelectedImageIndex = 1;
                 folderNode.Checked = true;
-                folderNode.Tag = s;
-                TreeNode[] subFolders = tvFolder(s);
+                folderNode.Tag = newNodeTag(false, false, string.Empty);
+                TreeNode[] subFolders = tvFolder(s, menu);
                 if (subFolders.Length > 0) folderNode.Nodes.AddRange(subFolders);
 
                 _out[folderPos] = folderNode;
@@ -268,8 +318,11 @@ namespace SSImportResourcesGUI
                 TreeNode fileNode = new TreeNode("" + Path.GetFileName(s) + " (" + fileSizeUnit(s) + ")");
                 
                 fileNode.Checked = true;
+                fileNode.ImageIndex = 2;
+                fileNode.SelectedImageIndex = 2;
+                fileNode.ContextMenuStrip = menu;
 
-                fileNode.Tag = s;
+                fileNode.Tag = newNodeTag(true,true, s);
 
                 _out[folderPos] = fileNode;
                 folderPos++;
@@ -293,23 +346,6 @@ namespace SSImportResourcesGUI
 
             return byteCount + " bytes";
         }
-        private void treeView_AfterCheck(object sender, TreeViewEventArgs e)
-        {
-            // The code only executes if the user caused the checked state to change.
-            if (e.Action != TreeViewAction.Unknown)
-            {
-                if (bgWorker.IsBusy) e.Node.Checked = !e.Node.Checked;
-                else
-                {
-                    if (e.Node.Checked) TreeData.selectedFiles++;
-                    else TreeData.selectedFiles--;
-                    UpdateFileCount();
-                }
-                treeView.SelectedNode = e.Node;
-            }
-            
-        }
-
         private struct WorkerData
         {
             public TreeNodeCollection nodes;
@@ -339,7 +375,7 @@ namespace SSImportResourcesGUI
 
                 WorkerData param = new WorkerData();
 
-                param.nodes = treeView.Nodes;
+                param.nodes = _rootNode.Nodes;
                 param.OML = txtOML.Text;
                 param.ServiceStudio = txtSSPath.Text;
                 param.Path = txtFolder.Text;
@@ -361,16 +397,17 @@ namespace SSImportResourcesGUI
         {
             foreach (TreeNode node in nodes)
             {
-                if (Path.GetExtension(node.Tag.ToString()) != "")
+                if (getNodeTag(node).isFile)
                 {
                     if (node.Checked)
                     {
-                        string DeployPath = "." + Path.GetDirectoryName(node.Tag.ToString()).Replace(_Path, "");
+                        NodeTag tag = getNodeTag(node);
+                        string DeployPath = "." + Path.GetDirectoryName(tag.path).Replace(_Path, "");
 
                         Process p = new Process();
                         p.StartInfo.FileName = serviceStudio;
-                        p.StartInfo.Arguments = "-importResource \"" + OML + "\" \"" + node.Tag.ToString() + "\" \"" + DeployPath + "\"";
-                        bgWorker.ReportProgress(0, "Adding <b>" + Path.GetFileName(node.Tag.ToString()) + "</b> to <u>" + DeployPath.Replace(@"\", @"\\")+"</u>");
+                        p.StartInfo.Arguments = "-importResource \"" + OML + "\" \"" + tag.path + "\"" + (tag.deployFile?" \"" + DeployPath + "\"":"");
+                        bgWorker.ReportProgress(0, "Adding <b>" + Path.GetFileName(tag.path) + "</b> to " + (tag.deployFile?"<u>" + DeployPath.Replace(@"\", @"\\") + "</u>":Path.GetFileName(txtOML.Text)));
                         p.Start();
                         p.WaitForExit();
                         node.ForeColor = Color.Green;
@@ -437,7 +474,7 @@ namespace SSImportResourcesGUI
 
         private void treeView_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
         {
-            if (Path.GetExtension(e.Node.Tag.ToString()) != "")
+            if (getNodeTag(e.Node).isFile)
             {
                 if (!bgWorker.IsBusy) e.Node.Checked = !e.Node.Checked;
 
@@ -471,6 +508,87 @@ namespace SSImportResourcesGUI
         private void lnkGithub_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Process.Start("https://github.com/achinita/ImportResources/");
+        }
+
+        private void mnuItem_DontDeploy_Click(object sender, EventArgs e)
+        {
+            NodeTag d = getNodeTag(treeView.SelectedNode);
+            d.deployFile = false;
+            treeView.SelectedNode.Tag = d;
+
+            int imgIndex = (treeView.SelectedNode.Checked ? 0 : 3);
+            treeView.SelectedNode.ImageIndex = imgIndex;
+            treeView.SelectedNode.SelectedImageIndex = imgIndex;
+        }
+
+        private void treeView_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            treeView.SelectedNode = e.Node;
+        }
+        private void treeView_AfterCheck(object sender, TreeViewEventArgs e)
+        {
+
+            if (getNodeTag(e.Node).isFile)
+            {
+                if (bgWorker.IsBusy) e.Node.Checked = !e.Node.Checked;
+                else
+                {
+                    if (e.Node.Checked)
+                    {
+                        TreeData.selectedFiles++;
+
+                        int imgIndex = getNodeTag(e.Node).deployFile ? 2 : 0;
+
+                        e.Node.ImageIndex = imgIndex;
+                        e.Node.SelectedImageIndex = imgIndex;
+                    }
+                    else
+                    {
+                        TreeData.selectedFiles--;
+                        e.Node.ImageIndex = 3;
+                        e.Node.SelectedImageIndex = 3;
+                    }
+                    UpdateFileCount();
+                }
+                treeView.SelectedNode = e.Node;
+            }
+        }
+
+        private void contextFileNode_Opening(object sender, CancelEventArgs e)
+        {
+            NodeTag d = getNodeTag(treeView.SelectedNode);
+            if (d.deployFile)
+            {
+                mnuItem_DontDeploy.Visible = true;
+                mnuItem_Deploy.Visible = false;
+            }
+            else
+            {
+                mnuItem_DontDeploy.Visible = false;
+                mnuItem_Deploy.Visible = true;
+            }
+        }
+
+        private void mnuItem_Deploy_Click(object sender, EventArgs e)
+        {
+            NodeTag d = getNodeTag(treeView.SelectedNode);
+            d.deployFile = true;
+            treeView.SelectedNode.Tag = d;
+
+            int imgIndex = (treeView.SelectedNode.Checked ? 2 : 3);
+            treeView.SelectedNode.ImageIndex = imgIndex;
+            treeView.SelectedNode.SelectedImageIndex = imgIndex;
+        }
+
+        private void lnkDownload_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            string importPath = ssConnect.SelectEspace();
+
+            if (importPath != null)
+            {
+                importOML(importPath);
+                debug("Downloaded file <b>" + Path.GetFileName(importPath) + "</b> from " + ssConnect.LoginInfo.Hostname);
+            }
         }
     }
 }

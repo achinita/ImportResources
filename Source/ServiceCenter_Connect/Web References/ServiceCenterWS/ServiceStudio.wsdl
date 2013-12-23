@@ -1,0 +1,3207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://ServiceCenter/ServiceStudio/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:s0="http://www.outsystems.com" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://ServiceCenter/ServiceStudio/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.outsystems.com">
+      <s:element name="UploadNew">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="eSpace" type="s:base64Binary" />
+            <s:element minOccurs="1" maxOccurs="1" name="catalogId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="commitMessage" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="applicationKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="replaceIfDifferentKey" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadNewResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="eSpaceId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="versionId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="messages" type="s0:ArrayOfHEMessage" />
+            <s:element minOccurs="1" maxOccurs="1" name="existsWithDifferentKey" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfHEMessage">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="HEMessage" nillable="true" type="s0:HEMessage" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="HEMessage">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Detail" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="HelpRef" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExtraInfo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Submitable" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ListVersions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="eSpaceGUID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListVersionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="eSpaceVersions" type="s0:ArrayOfModuleInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfModuleInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ModuleInfo" nillable="true" type="s0:ModuleInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ModuleInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ModuleKind" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Version_Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SS_Key" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Version" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Uploaded_Date" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Uploader_Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Is_MultiTenant" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Is_Running" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CommitMessage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UploaderUsername" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Has_PublicElements" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Default_Theme_Is_Mobile" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ApplicationName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ApplicationKey" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsSystem" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Messages" type="s0:ArrayOfHEMessage" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UploadAndPublishExtension">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="extension" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="commitMessage" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="applicationKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadAndPublishExtensionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="messages" type="s0:ArrayOfHEMessage" />
+            <s:element minOccurs="1" maxOccurs="1" name="extensionId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="extensionVersionId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PushProducerToConsumer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="producerName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="consumerName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PushProducerToConsumerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="messages" type="s0:ArrayOfHEMessage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Metrics_Synchronized">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListMonthIDs" type="s0:ArrayOfInteger" />
+            <s:element minOccurs="0" maxOccurs="1" name="ListWeekIDs" type="s0:ArrayOfInteger" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInteger">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Integer" nillable="true" type="s0:Integer" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Integer">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Integer" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Metrics_SynchronizedResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="EspaceTenants">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="eSpaceGUID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EspaceTenantsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tenants" type="s0:ArrayOfTenantType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTenantType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TenantType" nillable="true" type="s0:TenantType" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TenantType">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="TenantId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetUserProviders">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SelfEspaceKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserProvidersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProviderEspaceList" type="s0:ArrayOfEspaceIdNameAndKey" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfEspaceIdNameAndKey">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EspaceIdNameAndKey" nillable="true" type="s0:EspaceIdNameAndKey" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EspaceIdNameAndKey">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SS_Key" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Apps_ListApplications">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IncludeIcons" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Apps_ListApplicationsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Applications" type="s0:ArrayOfApplicationInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfApplicationInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ApplicationInfo" nillable="true" type="s0:ApplicationInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ApplicationInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DefaultThemeIsMobile" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Key" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Icon" type="s:base64Binary" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasFullControl" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="FrontOfficeEspaceKey" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FrontOfficeEspaceName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BackOfficeEspaceKey" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BackOfficeEspaceName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WebThemeGlobalKey" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MobileThemeGlobalKey" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsActive" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CheckAgainstServerVersion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="catalogIdNeeded" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="conflictCheckNeeded" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="espaceKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="lastSolvedConflictVersion" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="versionHistory" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckAgainstServerVersionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CatalogId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="serverVersionComparedTo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="conflictResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="uploadUser" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="uploadDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckCompilation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="versionid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckCompilationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="messages" type="s0:ArrayOfHEMessage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckPublish">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="versionid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckPublishResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="messages" type="s0:ArrayOfHEMessage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Upload">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="eSpace" type="s:base64Binary" />
+            <s:element minOccurs="1" maxOccurs="1" name="catalogId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="commitMessage" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="applicationKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="eSpaceId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="versionId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="messages" type="s0:ArrayOfHEMessage" />
+            <s:element minOccurs="1" maxOccurs="1" name="existsWithDifferentKey" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEntryPoints">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="espaceGUID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="inPTA" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEntryPointsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="entryPoints" type="s0:ArrayOfArea_Entry_Point" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfArea_Entry_Point">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Area_Entry_Point" nillable="true" type="s0:Area_Entry_Point" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Area_Entry_Point">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Area_Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Is_Default" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ListEspaces">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListEspacesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="eSpaces" type="s0:ArrayOfModuleInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListCommits">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="eSpacesStartVersion" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="extensionsStartVersion" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="startDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListCommitsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="eSpaceCommits" type="s0:ArrayOfWORCCommitExtraInfoModuleInfoRecord" />
+            <s:element minOccurs="0" maxOccurs="1" name="extensionCommits" type="s0:ArrayOfWORCCommitExtraInfoModuleInfoRecord" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfWORCCommitExtraInfoModuleInfoRecord">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="WORCCommitExtraInfoModuleInfoRecord" nillable="true" type="s0:WORCCommitExtraInfoModuleInfoRecord" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="WORCCommitExtraInfoModuleInfoRecord">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ssSTCommitExtraInfo" type="s0:CommitExtraInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="ssSTModuleInfo" type="s0:ModuleInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CommitExtraInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CanDownload" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="UploaderEmail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UploaderSkypeName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UploadProductLicense">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fileContent" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadProductLicenseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="success" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="responseText" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMessagesSolution">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="SolutionPubId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="LastSeenId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMessagesSolutionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Messages" type="s0:ArrayOfHEMessage" />
+            <s:element minOccurs="1" maxOccurs="1" name="LastMessageId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListSolutionComponents">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="solutionName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListSolutionComponentsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="solutionComponents" type="s0:ArrayOfSolutionComponent" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSolutionComponent">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SolutionComponent" nillable="true" type="s0:SolutionComponent" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SolutionComponent">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SS_Key" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsExtension" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetProfilerMetrics">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EspaceKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProfilerMetricsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EspaceProfileData" type="s0:ArrayOfBinary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfBinary">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Binary" nillable="true" type="s0:Binary" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Binary">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Binary" type="s:base64Binary" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TestQuery">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="espaceKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="TenantID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="OML" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TestQueryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ResultCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ExecutedSQL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="QueryResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ErrorText" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AdvancedSQL" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Metrics_Fetch">
+        <s:complexType />
+      </s:element>
+      <s:element name="Metrics_FetchResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Metrics" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ListMonthIDs" type="s0:ArrayOfInteger" />
+            <s:element minOccurs="0" maxOccurs="1" name="ListWeekIDs" type="s0:ArrayOfInteger" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Apps_CreateOrUpdateApp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ApplicationInfo" type="s0:ApplicationInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Apps_CreateOrUpdateAppResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="message" type="s0:HEMessage" />
+            <s:element minOccurs="1" maxOccurs="1" name="success" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Compile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="versionid" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="reuseTablesOnMove" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CompileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="messages" type="s0:ArrayOfHEMessage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PublishPTA">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="espacename" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="partialoml" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="uid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="SkipDeploy" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PublishPTAResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="messages" type="s0:ArrayOfHEMessage" />
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="errorCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListCatalogs">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListCatalogsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Catalogs" type="s0:ArrayOfDBCatalogInfo" />
+            <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDBCatalogInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DBCatalogInfo" nillable="true" type="s0:DBCatalogInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DBCatalogInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ImportTable">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="entityGUID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="espaceGUID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ImportTableResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="errorText" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tableData" type="s0:ArrayOfAbstractRecord" />
+            <s:element minOccurs="0" maxOccurs="1" name="existingRecords" type="s0:ArrayOfEntity_Record" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAbstractRecord">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AbstractRecord" nillable="true" type="s0:AbstractRecord" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AbstractRecord">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Fields" type="s0:ArrayOfAbstractField" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tag" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfAbstractField">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AbstractField" nillable="true" type="s0:AbstractField" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AbstractField">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Text" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfEntity_Record">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Entity_Record" nillable="true" type="s0:Entity_Record" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Entity_Record">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Data_Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SS_Key" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Entity_SS_Key" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Espace_Id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Is_Active" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetLicenseInformation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLicenseInformationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="licenseInfo" type="s0:ActivationLicenseInformation" />
+            <s:element minOccurs="0" maxOccurs="1" name="softwareUnits" type="s0:SS_LicensingFeatureInfo" />
+            <s:element minOccurs="0" maxOccurs="1" name="namedUsers" type="s0:SS_LicensingFeatureInfo" />
+            <s:element minOccurs="1" maxOccurs="1" name="serverDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="trialCommunityInstalled" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ActivationLicenseInformation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Schema" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Creation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Term" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Warn" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Grace" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Edition" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Serial" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Organization" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="State" type="s0:ActivationResponse" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsOEM" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ActivationResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Answer" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s0:HEMessage" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SS_LicensingFeatureInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Consumed" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Limit" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Publish">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="versionid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PublishResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="messages" type="s0:ArrayOfHEMessage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Handshake">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="version" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lastUpVersion" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HandshakeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ok" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="error" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProductUrl">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProductId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProductUrlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="URL" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CanOpenOml">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EncryptedRequest" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CanOpenOmlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EncryptedResponse" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Apps_AddModuleToApp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AppKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ModuleKind" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ModuleKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Apps_AddModuleToAppResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="message" type="s0:HEMessage" />
+            <s:element minOccurs="1" maxOccurs="1" name="success" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadExtension">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="extensionKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="versionId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadExtensionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="extension" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEspaceId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EspaceKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEspaceIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EspaceId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckPhoneConfig">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="espaceGUID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tenantname" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckPhoneConfigResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="valid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AssociateDependencies">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="versionid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AssociateDependenciesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="messages" type="s0:ArrayOfHEMessage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteModuleByKey">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ModuleKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ModuleKind" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteModuleByKeyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="message" type="s0:HEMessage" />
+            <s:element minOccurs="1" maxOccurs="1" name="success" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListReferenceable">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListReferenceableResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RefList" type="s0:ArrayOfReferenceType" />
+            <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfReferenceType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ReferenceType" nillable="true" type="s0:ReferenceType" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ReferenceType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Key" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Kind" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SignatureHash" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SignatureBinary" type="s:base64Binary" />
+          <s:element minOccurs="1" maxOccurs="1" name="Is_Broken" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Is_Outdated" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Is_System" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetReferenceDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Key" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Kind" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReferenceDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Details" type="s0:ReferenceType" />
+            <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDeveloperOperations">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="startDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDeveloperOperationsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="operations" type="s0:ArrayOfDeveloperOperation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDeveloperOperation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DeveloperOperation" nillable="true" type="s0:DeveloperOperation" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DeveloperOperation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="DeveloperUsername" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ESpaceName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Download">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="versionId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="eSpaceGUID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="eSpace" type="s:base64Binary" />
+            <s:element minOccurs="1" maxOccurs="1" name="uploadDate" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="uploadUser" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="isPublishedVersion" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="message" type="s0:HEMessage" />
+            <s:element minOccurs="1" maxOccurs="1" name="success" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TestAction">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ESpaceName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Action" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Parameters" type="s0:ArrayOfText" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfText">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Text" nillable="true" type="s0:Text" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Text">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Text" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TestActionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ResultCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Result" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ErrorText" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadByName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="versionId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="eSpaceName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadByNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="eSpace" type="s:base64Binary" />
+            <s:element minOccurs="1" maxOccurs="1" name="uploadDate" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="uploadUser" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="isPublishedVersion" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="message" type="s0:HEMessage" />
+            <s:element minOccurs="1" maxOccurs="1" name="success" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteProductLicense">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="product_Id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteProductLicenseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="success" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="responseText" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHashset_Fragments">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="espaceGUID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="lastVersionId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHashset_FragmentsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="versionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="hashset" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="statusCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fragments" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPossibleEntryESpaces">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="espaceGUID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPossibleEntryESpacesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="consumers" type="s0:ArrayOfEspaceIdNameAndKey" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListExtensions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListExtensionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="extensions" type="s0:ArrayOfModuleInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Apps_GetAppDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="appKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Apps_GetAppDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ApplicationInfo" type="s0:ApplicationInfo" />
+            <s:element minOccurs="0" maxOccurs="1" name="Modules" type="s0:ArrayOfModuleInfo" />
+            <s:element minOccurs="0" maxOccurs="1" name="Dependencies" type="s0:ArrayOfModuleInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetConsumers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="producerESpaceKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="referenceableElementKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetConsumersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="consumersList" type="s0:ArrayOfEspaceIdNameAndKey" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteByName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="eSpaceName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteByNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="message" type="s0:HEMessage" />
+            <s:element minOccurs="1" maxOccurs="1" name="success" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProperties">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetPropertiesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="properties" type="s0:ArrayOfProperties" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfProperties">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Properties" nillable="true" type="s0:Properties" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Properties">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UsesExternalAuthentication">
+        <s:complexType />
+      </s:element>
+      <s:element name="UsesExternalAuthenticationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Apps_RemoveModuleFromApp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AppKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ModuleKind" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ModuleKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Apps_RemoveModuleFromAppResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="message" type="s0:HEMessage" />
+            <s:element minOccurs="1" maxOccurs="1" name="Success" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPossibleBackOfficeESpaces">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SelfEspaceKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPossibleBackOfficeESpacesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EspaceList" type="s0:ArrayOfEspaceIdNameAndKey" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PublishSolution">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="File" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="Filename" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="JustUpload" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="CleanPublish" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="FromOSPTool" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="CatalogMappings" type="s0:ArrayOfDBCatalogMapping" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReuseTablesOnMove" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDBCatalogMapping">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DBCatalogMapping" nillable="true" type="s0:DBCatalogMapping" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DBCatalogMapping">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="EspaceName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CatalogName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="PublishSolutionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Messages" type="s0:ArrayOfHEMessage" />
+            <s:element minOccurs="1" maxOccurs="1" name="SolutionPubId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="PackUID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="PackSchemaVersion" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="NeedsConfiguration" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEntityUsageData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="espaceKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="entityGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="entitiesGuids" type="s0:ArrayOfText" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEntityUsageDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="entityUsageInfo" type="s0:EntityUsageInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="EntityUsageInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="totalReads" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="totalUpdates" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="entityUsageData" type="s0:ArrayOfEntity_Usage" />
+          <s:element minOccurs="1" maxOccurs="1" name="cacheHits" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="useCache" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="cacheMisses" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfEntity_Usage">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Entity_Usage" nillable="true" type="s0:Entity_Usage" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Entity_Usage">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Entity_GUID" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Date" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Size_In_Kb" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Row_Count" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="User_Reads" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="User_Updates" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetInstallationKind">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetInstallationKindResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InstallationKind" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DatabaseKind" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ApplicationServerType" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="HasProfilerMetrics" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangeCommitMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="eSpaceVersionId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="newCommitMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangeCommitMessageResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="RegisterOperation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="espacename" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="OperationType" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegisterOperationResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="Apps_DeleteApp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="appKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="simulate" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Apps_DeleteAppResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="messages" type="s0:ArrayOfHEMessage" />
+            <s:element minOccurs="1" maxOccurs="1" name="success" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="affectedApps" type="s0:ArrayOfText" />
+            <s:element minOccurs="0" maxOccurs="1" name="deletedComponents" type="s0:ArrayOfText" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadNeeded">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="eSpaceGUID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="eSpaceHash" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadNeededResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Needs" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="eSpaceId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="equalVersionId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="basedOnPrevious" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="runningVersionId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="messages" type="s0:ArrayOfHEMessage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAssemblyInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="espaceGUID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="consumerName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="inPTA" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAssemblyInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="info" type="s0:Assembly" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Assembly">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Area_Id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Espace_Id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Extension_Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Signature" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="In_Debug" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Debugger_Version" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompiledButNotDeployedHash" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UploadLicense">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fileName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fileContent" type="s:base64Binary" />
+            <s:element minOccurs="1" maxOccurs="1" name="isTrialCommunity" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadLicenseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="success" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="errorText" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="UploadNewSoapIn">
+    <wsdl:part name="parameters" element="s0:UploadNew" />
+  </wsdl:message>
+  <wsdl:message name="UploadNewSoapOut">
+    <wsdl:part name="parameters" element="s0:UploadNewResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListVersionsSoapIn">
+    <wsdl:part name="parameters" element="s0:ListVersions" />
+  </wsdl:message>
+  <wsdl:message name="ListVersionsSoapOut">
+    <wsdl:part name="parameters" element="s0:ListVersionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="UploadAndPublishExtensionSoapIn">
+    <wsdl:part name="parameters" element="s0:UploadAndPublishExtension" />
+  </wsdl:message>
+  <wsdl:message name="UploadAndPublishExtensionSoapOut">
+    <wsdl:part name="parameters" element="s0:UploadAndPublishExtensionResponse" />
+  </wsdl:message>
+  <wsdl:message name="PushProducerToConsumerSoapIn">
+    <wsdl:part name="parameters" element="s0:PushProducerToConsumer" />
+  </wsdl:message>
+  <wsdl:message name="PushProducerToConsumerSoapOut">
+    <wsdl:part name="parameters" element="s0:PushProducerToConsumerResponse" />
+  </wsdl:message>
+  <wsdl:message name="Metrics_SynchronizedSoapIn">
+    <wsdl:part name="parameters" element="s0:Metrics_Synchronized" />
+  </wsdl:message>
+  <wsdl:message name="Metrics_SynchronizedSoapOut">
+    <wsdl:part name="parameters" element="s0:Metrics_SynchronizedResponse" />
+  </wsdl:message>
+  <wsdl:message name="EspaceTenantsSoapIn">
+    <wsdl:part name="parameters" element="s0:EspaceTenants" />
+  </wsdl:message>
+  <wsdl:message name="EspaceTenantsSoapOut">
+    <wsdl:part name="parameters" element="s0:EspaceTenantsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserProvidersSoapIn">
+    <wsdl:part name="parameters" element="s0:GetUserProviders" />
+  </wsdl:message>
+  <wsdl:message name="GetUserProvidersSoapOut">
+    <wsdl:part name="parameters" element="s0:GetUserProvidersResponse" />
+  </wsdl:message>
+  <wsdl:message name="Apps_ListApplicationsSoapIn">
+    <wsdl:part name="parameters" element="s0:Apps_ListApplications" />
+  </wsdl:message>
+  <wsdl:message name="Apps_ListApplicationsSoapOut">
+    <wsdl:part name="parameters" element="s0:Apps_ListApplicationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckAgainstServerVersionSoapIn">
+    <wsdl:part name="parameters" element="s0:CheckAgainstServerVersion" />
+  </wsdl:message>
+  <wsdl:message name="CheckAgainstServerVersionSoapOut">
+    <wsdl:part name="parameters" element="s0:CheckAgainstServerVersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckCompilationSoapIn">
+    <wsdl:part name="parameters" element="s0:CheckCompilation" />
+  </wsdl:message>
+  <wsdl:message name="CheckCompilationSoapOut">
+    <wsdl:part name="parameters" element="s0:CheckCompilationResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckPublishSoapIn">
+    <wsdl:part name="parameters" element="s0:CheckPublish" />
+  </wsdl:message>
+  <wsdl:message name="CheckPublishSoapOut">
+    <wsdl:part name="parameters" element="s0:CheckPublishResponse" />
+  </wsdl:message>
+  <wsdl:message name="UploadSoapIn">
+    <wsdl:part name="parameters" element="s0:Upload" />
+  </wsdl:message>
+  <wsdl:message name="UploadSoapOut">
+    <wsdl:part name="parameters" element="s0:UploadResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEntryPointsSoapIn">
+    <wsdl:part name="parameters" element="s0:GetEntryPoints" />
+  </wsdl:message>
+  <wsdl:message name="GetEntryPointsSoapOut">
+    <wsdl:part name="parameters" element="s0:GetEntryPointsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListEspacesSoapIn">
+    <wsdl:part name="parameters" element="s0:ListEspaces" />
+  </wsdl:message>
+  <wsdl:message name="ListEspacesSoapOut">
+    <wsdl:part name="parameters" element="s0:ListEspacesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListCommitsSoapIn">
+    <wsdl:part name="parameters" element="s0:ListCommits" />
+  </wsdl:message>
+  <wsdl:message name="ListCommitsSoapOut">
+    <wsdl:part name="parameters" element="s0:ListCommitsResponse" />
+  </wsdl:message>
+  <wsdl:message name="UploadProductLicenseSoapIn">
+    <wsdl:part name="parameters" element="s0:UploadProductLicense" />
+  </wsdl:message>
+  <wsdl:message name="UploadProductLicenseSoapOut">
+    <wsdl:part name="parameters" element="s0:UploadProductLicenseResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMessagesSolutionSoapIn">
+    <wsdl:part name="parameters" element="s0:GetMessagesSolution" />
+  </wsdl:message>
+  <wsdl:message name="GetMessagesSolutionSoapOut">
+    <wsdl:part name="parameters" element="s0:GetMessagesSolutionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListSolutionComponentsSoapIn">
+    <wsdl:part name="parameters" element="s0:ListSolutionComponents" />
+  </wsdl:message>
+  <wsdl:message name="ListSolutionComponentsSoapOut">
+    <wsdl:part name="parameters" element="s0:ListSolutionComponentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProfilerMetricsSoapIn">
+    <wsdl:part name="parameters" element="s0:GetProfilerMetrics" />
+  </wsdl:message>
+  <wsdl:message name="GetProfilerMetricsSoapOut">
+    <wsdl:part name="parameters" element="s0:GetProfilerMetricsResponse" />
+  </wsdl:message>
+  <wsdl:message name="TestQuerySoapIn">
+    <wsdl:part name="parameters" element="s0:TestQuery" />
+  </wsdl:message>
+  <wsdl:message name="TestQuerySoapOut">
+    <wsdl:part name="parameters" element="s0:TestQueryResponse" />
+  </wsdl:message>
+  <wsdl:message name="Metrics_FetchSoapIn">
+    <wsdl:part name="parameters" element="s0:Metrics_Fetch" />
+  </wsdl:message>
+  <wsdl:message name="Metrics_FetchSoapOut">
+    <wsdl:part name="parameters" element="s0:Metrics_FetchResponse" />
+  </wsdl:message>
+  <wsdl:message name="Apps_CreateOrUpdateAppSoapIn">
+    <wsdl:part name="parameters" element="s0:Apps_CreateOrUpdateApp" />
+  </wsdl:message>
+  <wsdl:message name="Apps_CreateOrUpdateAppSoapOut">
+    <wsdl:part name="parameters" element="s0:Apps_CreateOrUpdateAppResponse" />
+  </wsdl:message>
+  <wsdl:message name="CompileSoapIn">
+    <wsdl:part name="parameters" element="s0:Compile" />
+  </wsdl:message>
+  <wsdl:message name="CompileSoapOut">
+    <wsdl:part name="parameters" element="s0:CompileResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublishPTASoapIn">
+    <wsdl:part name="parameters" element="s0:PublishPTA" />
+  </wsdl:message>
+  <wsdl:message name="PublishPTASoapOut">
+    <wsdl:part name="parameters" element="s0:PublishPTAResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListCatalogsSoapIn">
+    <wsdl:part name="parameters" element="s0:ListCatalogs" />
+  </wsdl:message>
+  <wsdl:message name="ListCatalogsSoapOut">
+    <wsdl:part name="parameters" element="s0:ListCatalogsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ImportTableSoapIn">
+    <wsdl:part name="parameters" element="s0:ImportTable" />
+  </wsdl:message>
+  <wsdl:message name="ImportTableSoapOut">
+    <wsdl:part name="parameters" element="s0:ImportTableResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLicenseInformationSoapIn">
+    <wsdl:part name="parameters" element="s0:GetLicenseInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetLicenseInformationSoapOut">
+    <wsdl:part name="parameters" element="s0:GetLicenseInformationResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublishSoapIn">
+    <wsdl:part name="parameters" element="s0:Publish" />
+  </wsdl:message>
+  <wsdl:message name="PublishSoapOut">
+    <wsdl:part name="parameters" element="s0:PublishResponse" />
+  </wsdl:message>
+  <wsdl:message name="HandshakeSoapIn">
+    <wsdl:part name="parameters" element="s0:Handshake" />
+  </wsdl:message>
+  <wsdl:message name="HandshakeSoapOut">
+    <wsdl:part name="parameters" element="s0:HandshakeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProductUrlSoapIn">
+    <wsdl:part name="parameters" element="s0:GetProductUrl" />
+  </wsdl:message>
+  <wsdl:message name="GetProductUrlSoapOut">
+    <wsdl:part name="parameters" element="s0:GetProductUrlResponse" />
+  </wsdl:message>
+  <wsdl:message name="CanOpenOmlSoapIn">
+    <wsdl:part name="parameters" element="s0:CanOpenOml" />
+  </wsdl:message>
+  <wsdl:message name="CanOpenOmlSoapOut">
+    <wsdl:part name="parameters" element="s0:CanOpenOmlResponse" />
+  </wsdl:message>
+  <wsdl:message name="Apps_AddModuleToAppSoapIn">
+    <wsdl:part name="parameters" element="s0:Apps_AddModuleToApp" />
+  </wsdl:message>
+  <wsdl:message name="Apps_AddModuleToAppSoapOut">
+    <wsdl:part name="parameters" element="s0:Apps_AddModuleToAppResponse" />
+  </wsdl:message>
+  <wsdl:message name="DownloadExtensionSoapIn">
+    <wsdl:part name="parameters" element="s0:DownloadExtension" />
+  </wsdl:message>
+  <wsdl:message name="DownloadExtensionSoapOut">
+    <wsdl:part name="parameters" element="s0:DownloadExtensionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEspaceIdSoapIn">
+    <wsdl:part name="parameters" element="s0:GetEspaceId" />
+  </wsdl:message>
+  <wsdl:message name="GetEspaceIdSoapOut">
+    <wsdl:part name="parameters" element="s0:GetEspaceIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckPhoneConfigSoapIn">
+    <wsdl:part name="parameters" element="s0:CheckPhoneConfig" />
+  </wsdl:message>
+  <wsdl:message name="CheckPhoneConfigSoapOut">
+    <wsdl:part name="parameters" element="s0:CheckPhoneConfigResponse" />
+  </wsdl:message>
+  <wsdl:message name="AssociateDependenciesSoapIn">
+    <wsdl:part name="parameters" element="s0:AssociateDependencies" />
+  </wsdl:message>
+  <wsdl:message name="AssociateDependenciesSoapOut">
+    <wsdl:part name="parameters" element="s0:AssociateDependenciesResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteModuleByKeySoapIn">
+    <wsdl:part name="parameters" element="s0:DeleteModuleByKey" />
+  </wsdl:message>
+  <wsdl:message name="DeleteModuleByKeySoapOut">
+    <wsdl:part name="parameters" element="s0:DeleteModuleByKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListReferenceableSoapIn">
+    <wsdl:part name="parameters" element="s0:ListReferenceable" />
+  </wsdl:message>
+  <wsdl:message name="ListReferenceableSoapOut">
+    <wsdl:part name="parameters" element="s0:ListReferenceableResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetReferenceDetailsSoapIn">
+    <wsdl:part name="parameters" element="s0:GetReferenceDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetReferenceDetailsSoapOut">
+    <wsdl:part name="parameters" element="s0:GetReferenceDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDeveloperOperationsSoapIn">
+    <wsdl:part name="parameters" element="s0:GetDeveloperOperations" />
+  </wsdl:message>
+  <wsdl:message name="GetDeveloperOperationsSoapOut">
+    <wsdl:part name="parameters" element="s0:GetDeveloperOperationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="DownloadSoapIn">
+    <wsdl:part name="parameters" element="s0:Download" />
+  </wsdl:message>
+  <wsdl:message name="DownloadSoapOut">
+    <wsdl:part name="parameters" element="s0:DownloadResponse" />
+  </wsdl:message>
+  <wsdl:message name="TestActionSoapIn">
+    <wsdl:part name="parameters" element="s0:TestAction" />
+  </wsdl:message>
+  <wsdl:message name="TestActionSoapOut">
+    <wsdl:part name="parameters" element="s0:TestActionResponse" />
+  </wsdl:message>
+  <wsdl:message name="DownloadByNameSoapIn">
+    <wsdl:part name="parameters" element="s0:DownloadByName" />
+  </wsdl:message>
+  <wsdl:message name="DownloadByNameSoapOut">
+    <wsdl:part name="parameters" element="s0:DownloadByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteProductLicenseSoapIn">
+    <wsdl:part name="parameters" element="s0:DeleteProductLicense" />
+  </wsdl:message>
+  <wsdl:message name="DeleteProductLicenseSoapOut">
+    <wsdl:part name="parameters" element="s0:DeleteProductLicenseResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetHashset_FragmentsSoapIn">
+    <wsdl:part name="parameters" element="s0:GetHashset_Fragments" />
+  </wsdl:message>
+  <wsdl:message name="GetHashset_FragmentsSoapOut">
+    <wsdl:part name="parameters" element="s0:GetHashset_FragmentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPossibleEntryESpacesSoapIn">
+    <wsdl:part name="parameters" element="s0:GetPossibleEntryESpaces" />
+  </wsdl:message>
+  <wsdl:message name="GetPossibleEntryESpacesSoapOut">
+    <wsdl:part name="parameters" element="s0:GetPossibleEntryESpacesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListExtensionsSoapIn">
+    <wsdl:part name="parameters" element="s0:ListExtensions" />
+  </wsdl:message>
+  <wsdl:message name="ListExtensionsSoapOut">
+    <wsdl:part name="parameters" element="s0:ListExtensionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="Apps_GetAppDetailsSoapIn">
+    <wsdl:part name="parameters" element="s0:Apps_GetAppDetails" />
+  </wsdl:message>
+  <wsdl:message name="Apps_GetAppDetailsSoapOut">
+    <wsdl:part name="parameters" element="s0:Apps_GetAppDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetConsumersSoapIn">
+    <wsdl:part name="parameters" element="s0:GetConsumers" />
+  </wsdl:message>
+  <wsdl:message name="GetConsumersSoapOut">
+    <wsdl:part name="parameters" element="s0:GetConsumersResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteByNameSoapIn">
+    <wsdl:part name="parameters" element="s0:DeleteByName" />
+  </wsdl:message>
+  <wsdl:message name="DeleteByNameSoapOut">
+    <wsdl:part name="parameters" element="s0:DeleteByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPropertiesSoapIn">
+    <wsdl:part name="parameters" element="s0:GetProperties" />
+  </wsdl:message>
+  <wsdl:message name="GetPropertiesSoapOut">
+    <wsdl:part name="parameters" element="s0:GetPropertiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="UsesExternalAuthenticationSoapIn">
+    <wsdl:part name="parameters" element="s0:UsesExternalAuthentication" />
+  </wsdl:message>
+  <wsdl:message name="UsesExternalAuthenticationSoapOut">
+    <wsdl:part name="parameters" element="s0:UsesExternalAuthenticationResponse" />
+  </wsdl:message>
+  <wsdl:message name="Apps_RemoveModuleFromAppSoapIn">
+    <wsdl:part name="parameters" element="s0:Apps_RemoveModuleFromApp" />
+  </wsdl:message>
+  <wsdl:message name="Apps_RemoveModuleFromAppSoapOut">
+    <wsdl:part name="parameters" element="s0:Apps_RemoveModuleFromAppResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPossibleBackOfficeESpacesSoapIn">
+    <wsdl:part name="parameters" element="s0:GetPossibleBackOfficeESpaces" />
+  </wsdl:message>
+  <wsdl:message name="GetPossibleBackOfficeESpacesSoapOut">
+    <wsdl:part name="parameters" element="s0:GetPossibleBackOfficeESpacesResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublishSolutionSoapIn">
+    <wsdl:part name="parameters" element="s0:PublishSolution" />
+  </wsdl:message>
+  <wsdl:message name="PublishSolutionSoapOut">
+    <wsdl:part name="parameters" element="s0:PublishSolutionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEntityUsageDataSoapIn">
+    <wsdl:part name="parameters" element="s0:GetEntityUsageData" />
+  </wsdl:message>
+  <wsdl:message name="GetEntityUsageDataSoapOut">
+    <wsdl:part name="parameters" element="s0:GetEntityUsageDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetInstallationKindSoapIn">
+    <wsdl:part name="parameters" element="s0:GetInstallationKind" />
+  </wsdl:message>
+  <wsdl:message name="GetInstallationKindSoapOut">
+    <wsdl:part name="parameters" element="s0:GetInstallationKindResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChangeCommitMessageSoapIn">
+    <wsdl:part name="parameters" element="s0:ChangeCommitMessage" />
+  </wsdl:message>
+  <wsdl:message name="ChangeCommitMessageSoapOut">
+    <wsdl:part name="parameters" element="s0:ChangeCommitMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegisterOperationSoapIn">
+    <wsdl:part name="parameters" element="s0:RegisterOperation" />
+  </wsdl:message>
+  <wsdl:message name="RegisterOperationSoapOut">
+    <wsdl:part name="parameters" element="s0:RegisterOperationResponse" />
+  </wsdl:message>
+  <wsdl:message name="Apps_DeleteAppSoapIn">
+    <wsdl:part name="parameters" element="s0:Apps_DeleteApp" />
+  </wsdl:message>
+  <wsdl:message name="Apps_DeleteAppSoapOut">
+    <wsdl:part name="parameters" element="s0:Apps_DeleteAppResponse" />
+  </wsdl:message>
+  <wsdl:message name="UploadNeededSoapIn">
+    <wsdl:part name="parameters" element="s0:UploadNeeded" />
+  </wsdl:message>
+  <wsdl:message name="UploadNeededSoapOut">
+    <wsdl:part name="parameters" element="s0:UploadNeededResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAssemblyInfoSoapIn">
+    <wsdl:part name="parameters" element="s0:GetAssemblyInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetAssemblyInfoSoapOut">
+    <wsdl:part name="parameters" element="s0:GetAssemblyInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="UploadLicenseSoapIn">
+    <wsdl:part name="parameters" element="s0:UploadLicense" />
+  </wsdl:message>
+  <wsdl:message name="UploadLicenseSoapOut">
+    <wsdl:part name="parameters" element="s0:UploadLicenseResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceStudioSoap">
+    <wsdl:operation name="UploadNew">
+      <wsdl:input message="tns:UploadNewSoapIn" />
+      <wsdl:output message="tns:UploadNewSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListVersions">
+      <wsdl:input message="tns:ListVersionsSoapIn" />
+      <wsdl:output message="tns:ListVersionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadAndPublishExtension">
+      <wsdl:input message="tns:UploadAndPublishExtensionSoapIn" />
+      <wsdl:output message="tns:UploadAndPublishExtensionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PushProducerToConsumer">
+      <wsdl:input message="tns:PushProducerToConsumerSoapIn" />
+      <wsdl:output message="tns:PushProducerToConsumerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Metrics_Synchronized">
+      <wsdl:input message="tns:Metrics_SynchronizedSoapIn" />
+      <wsdl:output message="tns:Metrics_SynchronizedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EspaceTenants">
+      <wsdl:input message="tns:EspaceTenantsSoapIn" />
+      <wsdl:output message="tns:EspaceTenantsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserProviders">
+      <wsdl:input message="tns:GetUserProvidersSoapIn" />
+      <wsdl:output message="tns:GetUserProvidersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Apps_ListApplications">
+      <wsdl:input message="tns:Apps_ListApplicationsSoapIn" />
+      <wsdl:output message="tns:Apps_ListApplicationsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckAgainstServerVersion">
+      <wsdl:input message="tns:CheckAgainstServerVersionSoapIn" />
+      <wsdl:output message="tns:CheckAgainstServerVersionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckCompilation">
+      <wsdl:input message="tns:CheckCompilationSoapIn" />
+      <wsdl:output message="tns:CheckCompilationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckPublish">
+      <wsdl:input message="tns:CheckPublishSoapIn" />
+      <wsdl:output message="tns:CheckPublishSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Upload">
+      <wsdl:input message="tns:UploadSoapIn" />
+      <wsdl:output message="tns:UploadSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEntryPoints">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets the list of entry points of an eSpace in a Personal Area</wsdl:documentation>
+      <wsdl:input message="tns:GetEntryPointsSoapIn" />
+      <wsdl:output message="tns:GetEntryPointsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListEspaces">
+      <wsdl:input message="tns:ListEspacesSoapIn" />
+      <wsdl:output message="tns:ListEspacesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListCommits">
+      <wsdl:input message="tns:ListCommitsSoapIn" />
+      <wsdl:output message="tns:ListCommitsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadProductLicense">
+      <wsdl:input message="tns:UploadProductLicenseSoapIn" />
+      <wsdl:output message="tns:UploadProductLicenseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMessagesSolution">
+      <wsdl:input message="tns:GetMessagesSolutionSoapIn" />
+      <wsdl:output message="tns:GetMessagesSolutionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListSolutionComponents">
+      <wsdl:input message="tns:ListSolutionComponentsSoapIn" />
+      <wsdl:output message="tns:ListSolutionComponentsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProfilerMetrics">
+      <wsdl:input message="tns:GetProfilerMetricsSoapIn" />
+      <wsdl:output message="tns:GetProfilerMetricsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TestQuery">
+      <wsdl:input message="tns:TestQuerySoapIn" />
+      <wsdl:output message="tns:TestQuerySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Metrics_Fetch">
+      <wsdl:input message="tns:Metrics_FetchSoapIn" />
+      <wsdl:output message="tns:Metrics_FetchSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Apps_CreateOrUpdateApp">
+      <wsdl:input message="tns:Apps_CreateOrUpdateAppSoapIn" />
+      <wsdl:output message="tns:Apps_CreateOrUpdateAppSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Compile">
+      <wsdl:input message="tns:CompileSoapIn" />
+      <wsdl:output message="tns:CompileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PublishPTA">
+      <wsdl:input message="tns:PublishPTASoapIn" />
+      <wsdl:output message="tns:PublishPTASoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListCatalogs">
+      <wsdl:input message="tns:ListCatalogsSoapIn" />
+      <wsdl:output message="tns:ListCatalogsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportTable">
+      <wsdl:input message="tns:ImportTableSoapIn" />
+      <wsdl:output message="tns:ImportTableSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLicenseInformation">
+      <wsdl:input message="tns:GetLicenseInformationSoapIn" />
+      <wsdl:output message="tns:GetLicenseInformationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Publish">
+      <wsdl:input message="tns:PublishSoapIn" />
+      <wsdl:output message="tns:PublishSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Handshake">
+      <wsdl:input message="tns:HandshakeSoapIn" />
+      <wsdl:output message="tns:HandshakeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductUrl">
+      <wsdl:input message="tns:GetProductUrlSoapIn" />
+      <wsdl:output message="tns:GetProductUrlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CanOpenOml">
+      <wsdl:input message="tns:CanOpenOmlSoapIn" />
+      <wsdl:output message="tns:CanOpenOmlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Apps_AddModuleToApp">
+      <wsdl:input message="tns:Apps_AddModuleToAppSoapIn" />
+      <wsdl:output message="tns:Apps_AddModuleToAppSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadExtension">
+      <wsdl:input message="tns:DownloadExtensionSoapIn" />
+      <wsdl:output message="tns:DownloadExtensionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEspaceId">
+      <wsdl:input message="tns:GetEspaceIdSoapIn" />
+      <wsdl:output message="tns:GetEspaceIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckPhoneConfig">
+      <wsdl:input message="tns:CheckPhoneConfigSoapIn" />
+      <wsdl:output message="tns:CheckPhoneConfigSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AssociateDependencies">
+      <wsdl:input message="tns:AssociateDependenciesSoapIn" />
+      <wsdl:output message="tns:AssociateDependenciesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteModuleByKey">
+      <wsdl:input message="tns:DeleteModuleByKeySoapIn" />
+      <wsdl:output message="tns:DeleteModuleByKeySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListReferenceable">
+      <wsdl:input message="tns:ListReferenceableSoapIn" />
+      <wsdl:output message="tns:ListReferenceableSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReferenceDetails">
+      <wsdl:input message="tns:GetReferenceDetailsSoapIn" />
+      <wsdl:output message="tns:GetReferenceDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDeveloperOperations">
+      <wsdl:input message="tns:GetDeveloperOperationsSoapIn" />
+      <wsdl:output message="tns:GetDeveloperOperationsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Download">
+      <wsdl:input message="tns:DownloadSoapIn" />
+      <wsdl:output message="tns:DownloadSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TestAction">
+      <wsdl:input message="tns:TestActionSoapIn" />
+      <wsdl:output message="tns:TestActionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadByName">
+      <wsdl:input message="tns:DownloadByNameSoapIn" />
+      <wsdl:output message="tns:DownloadByNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProductLicense">
+      <wsdl:input message="tns:DeleteProductLicenseSoapIn" />
+      <wsdl:output message="tns:DeleteProductLicenseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHashset_Fragments">
+      <wsdl:input message="tns:GetHashset_FragmentsSoapIn" />
+      <wsdl:output message="tns:GetHashset_FragmentsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPossibleEntryESpaces">
+      <wsdl:input message="tns:GetPossibleEntryESpacesSoapIn" />
+      <wsdl:output message="tns:GetPossibleEntryESpacesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListExtensions">
+      <wsdl:input message="tns:ListExtensionsSoapIn" />
+      <wsdl:output message="tns:ListExtensionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Apps_GetAppDetails">
+      <wsdl:input message="tns:Apps_GetAppDetailsSoapIn" />
+      <wsdl:output message="tns:Apps_GetAppDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetConsumers">
+      <wsdl:input message="tns:GetConsumersSoapIn" />
+      <wsdl:output message="tns:GetConsumersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteByName">
+      <wsdl:input message="tns:DeleteByNameSoapIn" />
+      <wsdl:output message="tns:DeleteByNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProperties">
+      <wsdl:input message="tns:GetPropertiesSoapIn" />
+      <wsdl:output message="tns:GetPropertiesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UsesExternalAuthentication">
+      <wsdl:input message="tns:UsesExternalAuthenticationSoapIn" />
+      <wsdl:output message="tns:UsesExternalAuthenticationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Apps_RemoveModuleFromApp">
+      <wsdl:input message="tns:Apps_RemoveModuleFromAppSoapIn" />
+      <wsdl:output message="tns:Apps_RemoveModuleFromAppSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPossibleBackOfficeESpaces">
+      <wsdl:input message="tns:GetPossibleBackOfficeESpacesSoapIn" />
+      <wsdl:output message="tns:GetPossibleBackOfficeESpacesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PublishSolution">
+      <wsdl:input message="tns:PublishSolutionSoapIn" />
+      <wsdl:output message="tns:PublishSolutionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEntityUsageData">
+      <wsdl:input message="tns:GetEntityUsageDataSoapIn" />
+      <wsdl:output message="tns:GetEntityUsageDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInstallationKind">
+      <wsdl:input message="tns:GetInstallationKindSoapIn" />
+      <wsdl:output message="tns:GetInstallationKindSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeCommitMessage">
+      <wsdl:input message="tns:ChangeCommitMessageSoapIn" />
+      <wsdl:output message="tns:ChangeCommitMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterOperation">
+      <wsdl:input message="tns:RegisterOperationSoapIn" />
+      <wsdl:output message="tns:RegisterOperationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Apps_DeleteApp">
+      <wsdl:input message="tns:Apps_DeleteAppSoapIn" />
+      <wsdl:output message="tns:Apps_DeleteAppSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadNeeded">
+      <wsdl:input message="tns:UploadNeededSoapIn" />
+      <wsdl:output message="tns:UploadNeededSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAssemblyInfo">
+      <wsdl:input message="tns:GetAssemblyInfoSoapIn" />
+      <wsdl:output message="tns:GetAssemblyInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadLicense">
+      <wsdl:input message="tns:UploadLicenseSoapIn" />
+      <wsdl:output message="tns:UploadLicenseSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceStudioSoap" type="tns:ServiceStudioSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="UploadNew">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/UploadNew" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListVersions">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/ListVersions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadAndPublishExtension">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/UploadAndPublishExtension" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PushProducerToConsumer">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/PushProducerToConsumer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Metrics_Synchronized">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/Metrics_Synchronized" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EspaceTenants">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/EspaceTenants" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserProviders">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/GetUserProviders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Apps_ListApplications">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/Apps_ListApplications" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckAgainstServerVersion">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/CheckAgainstServerVersion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckCompilation">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/CheckCompilation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPublish">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/CheckPublish" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Upload">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/Upload" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEntryPoints">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/GetEntryPoints" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListEspaces">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/ListEspaces" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListCommits">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/ListCommits" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadProductLicense">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/UploadProductLicense" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessagesSolution">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/GetMessagesSolution" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListSolutionComponents">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/ListSolutionComponents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProfilerMetrics">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/GetProfilerMetrics" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestQuery">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/TestQuery" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Metrics_Fetch">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/Metrics_Fetch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Apps_CreateOrUpdateApp">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/Apps_CreateOrUpdateApp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Compile">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/Compile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PublishPTA">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/PublishPTA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListCatalogs">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/ListCatalogs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportTable">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/ImportTable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLicenseInformation">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/GetLicenseInformation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Publish">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/Publish" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Handshake">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/Handshake" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductUrl">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/GetProductUrl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CanOpenOml">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/CanOpenOml" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Apps_AddModuleToApp">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/Apps_AddModuleToApp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadExtension">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/DownloadExtension" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEspaceId">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/GetEspaceId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPhoneConfig">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/CheckPhoneConfig" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AssociateDependencies">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/AssociateDependencies" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteModuleByKey">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/DeleteModuleByKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListReferenceable">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/ListReferenceable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReferenceDetails">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/GetReferenceDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeveloperOperations">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/GetDeveloperOperations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Download">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/Download" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestAction">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/TestAction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadByName">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/DownloadByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProductLicense">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/DeleteProductLicense" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHashset_Fragments">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/GetHashset_Fragments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPossibleEntryESpaces">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/GetPossibleEntryESpaces" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListExtensions">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/ListExtensions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Apps_GetAppDetails">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/Apps_GetAppDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetConsumers">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/GetConsumers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteByName">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/DeleteByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProperties">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/GetProperties" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UsesExternalAuthentication">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/UsesExternalAuthentication" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Apps_RemoveModuleFromApp">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/Apps_RemoveModuleFromApp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPossibleBackOfficeESpaces">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/GetPossibleBackOfficeESpaces" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PublishSolution">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/PublishSolution" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEntityUsageData">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/GetEntityUsageData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInstallationKind">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/GetInstallationKind" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeCommitMessage">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/ChangeCommitMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterOperation">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/RegisterOperation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Apps_DeleteApp">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/Apps_DeleteApp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadNeeded">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/UploadNeeded" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssemblyInfo">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/GetAssemblyInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadLicense">
+      <soap:operation soapAction="http://ServiceCenter/ServiceStudio/UploadLicense" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceStudioSoap12" type="tns:ServiceStudioSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="UploadNew">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/UploadNew" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListVersions">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/ListVersions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadAndPublishExtension">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/UploadAndPublishExtension" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PushProducerToConsumer">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/PushProducerToConsumer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Metrics_Synchronized">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/Metrics_Synchronized" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EspaceTenants">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/EspaceTenants" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserProviders">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/GetUserProviders" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Apps_ListApplications">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/Apps_ListApplications" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckAgainstServerVersion">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/CheckAgainstServerVersion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckCompilation">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/CheckCompilation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPublish">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/CheckPublish" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Upload">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/Upload" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEntryPoints">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/GetEntryPoints" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListEspaces">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/ListEspaces" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListCommits">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/ListCommits" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadProductLicense">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/UploadProductLicense" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessagesSolution">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/GetMessagesSolution" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListSolutionComponents">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/ListSolutionComponents" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProfilerMetrics">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/GetProfilerMetrics" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestQuery">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/TestQuery" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Metrics_Fetch">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/Metrics_Fetch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Apps_CreateOrUpdateApp">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/Apps_CreateOrUpdateApp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Compile">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/Compile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PublishPTA">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/PublishPTA" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListCatalogs">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/ListCatalogs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportTable">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/ImportTable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLicenseInformation">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/GetLicenseInformation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Publish">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/Publish" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Handshake">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/Handshake" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductUrl">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/GetProductUrl" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CanOpenOml">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/CanOpenOml" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Apps_AddModuleToApp">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/Apps_AddModuleToApp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadExtension">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/DownloadExtension" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEspaceId">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/GetEspaceId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPhoneConfig">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/CheckPhoneConfig" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AssociateDependencies">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/AssociateDependencies" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteModuleByKey">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/DeleteModuleByKey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListReferenceable">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/ListReferenceable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReferenceDetails">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/GetReferenceDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeveloperOperations">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/GetDeveloperOperations" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Download">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/Download" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestAction">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/TestAction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadByName">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/DownloadByName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProductLicense">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/DeleteProductLicense" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHashset_Fragments">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/GetHashset_Fragments" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPossibleEntryESpaces">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/GetPossibleEntryESpaces" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListExtensions">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/ListExtensions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Apps_GetAppDetails">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/Apps_GetAppDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetConsumers">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/GetConsumers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteByName">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/DeleteByName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProperties">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/GetProperties" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UsesExternalAuthentication">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/UsesExternalAuthentication" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Apps_RemoveModuleFromApp">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/Apps_RemoveModuleFromApp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPossibleBackOfficeESpaces">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/GetPossibleBackOfficeESpaces" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PublishSolution">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/PublishSolution" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEntityUsageData">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/GetEntityUsageData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInstallationKind">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/GetInstallationKind" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeCommitMessage">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/ChangeCommitMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterOperation">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/RegisterOperation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Apps_DeleteApp">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/Apps_DeleteApp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadNeeded">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/UploadNeeded" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssemblyInfo">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/GetAssemblyInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadLicense">
+      <soap12:operation soapAction="http://ServiceCenter/ServiceStudio/UploadLicense" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServiceStudio">
+    <wsdl:port name="ServiceStudioSoap" binding="tns:ServiceStudioSoap">
+      <soap:address location="http://10.166.113.37/ServiceCenter/ServiceStudio.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceStudioSoap12" binding="tns:ServiceStudioSoap12">
+      <soap12:address location="http://10.166.113.37/ServiceCenter/ServiceStudio.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -71,6 +71,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -97,10 +99,12 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="SSImportResources.resx">
       <DependentUpon>SSImportResources.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -136,6 +140,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ResImport.ico" />
+    <None Include="Resources\Accept-icon.png" />
+    <None Include="Resources\red cross.png" />
+    <None Include="Resources\Export-To-File-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ServiceCenter_Connect\ServiceCenter_Connect.csproj">
+      <Project>{EDE4EEE6-9F69-405D-9F74-03566A5E8430}</Project>
+      <Name>ServiceCenter_Connect</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -43,14 +43,50 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SSImportResources.exe" size="59392">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="OutSystems.RuntimeCommon.dll" size="121856">
+      <assemblyIdentity name="OutSystems.RuntimeCommon" version="6.0.1.30" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>SFyFlbAkihf4CbdJHN6y1Xue+t4=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ServiceCenter_Connect.dll" size="147968">
+      <assemblyIdentity name="ServiceCenter_Connect" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>crkey0G3xzZPPhXDsH6kfIVt2Dw=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ServiceCenter_Connect.XmlSerializers.dll" size="318464">
+      <assemblyIdentity name="ServiceCenter_Connect.XmlSerializers" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>3Bu6jKpB8CTH1pUnKfpgnGgG08k=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SSImportResources.exe" size="66048">
       <assemblyIdentity name="SSImportResources" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>hrce2z+pGCkVIZVHvwC3Vm2oBOQ=</dsig:DigestValue>
+        <dsig:DigestValue>q30/UyGFD1FVogBx0zmIUd7dfjY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -61,6 +97,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
       <dsig:DigestValue>ZnEol+Ce4LyB43szqjmK5E3OXZM=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="SSImportResources.exe.config" size="122">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>9KA+JzlusaPz4TXe3oyukw98w6U=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

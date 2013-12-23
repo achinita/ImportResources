@@ -1,0 +1,12 @@
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\ServiceCenter_Connect\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\ServiceCenter_Connect\obj\x86\Debug\ServiceCenter_Connect.Properties.Resources.resources
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\ServiceCenter_Connect\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\ServiceCenter_Connect\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\ServiceCenter_Connect\bin\Debug\ServiceCenter_Connect.dll.config
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\ServiceCenter_Connect\bin\Debug\ServiceCenter_Connect.dll
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\ServiceCenter_Connect\bin\Debug\ServiceCenter_Connect.pdb
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\ServiceCenter_Connect\obj\x86\Debug\ServiceCenter_Connect.dll
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\ServiceCenter_Connect\obj\x86\Debug\ServiceCenter_Connect.pdb
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\ServiceCenter_Connect\bin\Debug\OutSystems.RuntimeCommon.dll
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\ServiceCenter_Connect\obj\x86\Debug\ServiceCenter_Connect.Login.resources
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\ServiceCenter_Connect\obj\x86\Debug\ServiceCenter_Connect.ListEspaces.resources

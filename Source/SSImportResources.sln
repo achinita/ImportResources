@@ -3,16 +3,38 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual C# Express 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSImportResources", "SSImportResourcesGUI\SSImportResources.csproj", "{FD53C3D0-6D7E-47AA-BC4F-D796D1921E8A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceCenter_Connect", "ServiceCenter_Connect\ServiceCenter_Connect.csproj", "{EDE4EEE6-9F69-405D-9F74-03566A5E8430}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
 		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FD53C3D0-6D7E-47AA-BC4F-D796D1921E8A}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{FD53C3D0-6D7E-47AA-BC4F-D796D1921E8A}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{FD53C3D0-6D7E-47AA-BC4F-D796D1921E8A}.Debug|Mixed Platforms.Build.0 = Debug|x86
 		{FD53C3D0-6D7E-47AA-BC4F-D796D1921E8A}.Debug|x86.ActiveCfg = Debug|x86
 		{FD53C3D0-6D7E-47AA-BC4F-D796D1921E8A}.Debug|x86.Build.0 = Debug|x86
+		{FD53C3D0-6D7E-47AA-BC4F-D796D1921E8A}.Release|Any CPU.ActiveCfg = Release|x86
+		{FD53C3D0-6D7E-47AA-BC4F-D796D1921E8A}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{FD53C3D0-6D7E-47AA-BC4F-D796D1921E8A}.Release|Mixed Platforms.Build.0 = Release|x86
 		{FD53C3D0-6D7E-47AA-BC4F-D796D1921E8A}.Release|x86.ActiveCfg = Release|x86
 		{FD53C3D0-6D7E-47AA-BC4F-D796D1921E8A}.Release|x86.Build.0 = Release|x86
+		{EDE4EEE6-9F69-405D-9F74-03566A5E8430}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{EDE4EEE6-9F69-405D-9F74-03566A5E8430}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{EDE4EEE6-9F69-405D-9F74-03566A5E8430}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{EDE4EEE6-9F69-405D-9F74-03566A5E8430}.Debug|x86.ActiveCfg = Debug|x86
+		{EDE4EEE6-9F69-405D-9F74-03566A5E8430}.Debug|x86.Build.0 = Debug|x86
+		{EDE4EEE6-9F69-405D-9F74-03566A5E8430}.Release|Any CPU.ActiveCfg = Release|x86
+		{EDE4EEE6-9F69-405D-9F74-03566A5E8430}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{EDE4EEE6-9F69-405D-9F74-03566A5E8430}.Release|Mixed Platforms.Build.0 = Release|x86
+		{EDE4EEE6-9F69-405D-9F74-03566A5E8430}.Release|x86.ActiveCfg = Release|x86
+		{EDE4EEE6-9F69-405D-9F74-03566A5E8430}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

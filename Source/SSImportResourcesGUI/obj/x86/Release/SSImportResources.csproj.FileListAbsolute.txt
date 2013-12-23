@@ -9,3 +9,4 @@ C:\Users\achinita\Documents\GitHub\ImportResources\Source\SSImportResourcesGUI\o
 C:\Users\achinita\Documents\GitHub\ImportResources\SSImportResources.exe.manifest
 C:\Users\achinita\Documents\GitHub\ImportResources\SSImportResources.application
 C:\Users\achinita\Documents\GitHub\ImportResources\SSImportResources.exe
+C:\Users\achinita\Documents\GitHub\ImportResources\SSImportResources.exe.config

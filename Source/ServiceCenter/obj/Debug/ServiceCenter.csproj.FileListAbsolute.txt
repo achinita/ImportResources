@@ -1,0 +1,7 @@
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\ServiceCenter\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\ServiceCenter\bin\Debug\ServiceCenter.dll.config
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\ServiceCenter\bin\Debug\ServiceCenter.dll
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\ServiceCenter\bin\Debug\ServiceCenter.pdb
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\ServiceCenter\obj\Debug\ServiceCenter.dll
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\ServiceCenter\obj\Debug\ServiceCenter.pdb
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\ServiceCenter\bin\Debug\OutSystems.RuntimeCommon.dll

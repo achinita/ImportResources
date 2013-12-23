@@ -1,0 +1,17 @@
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\SSImportResourcesGUI\bin\Debug\SSImportResources.exe.manifest
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\SSImportResourcesGUI\bin\Debug\SSImportResources.application
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\SSImportResourcesGUI\bin\Debug\SSImportResources.exe
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\SSImportResourcesGUI\bin\Debug\SSImportResources.pdb
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\SSImportResourcesGUI\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\SSImportResourcesGUI\obj\x86\Debug\SSImportResourcesGUI.Properties.Resources.resources
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\SSImportResourcesGUI\obj\x86\Debug\SSImportResourcesGUI.SSImportResources.resources
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\SSImportResourcesGUI\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\SSImportResourcesGUI\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\SSImportResourcesGUI\obj\x86\Debug\SSImportResources.exe.manifest
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\SSImportResourcesGUI\obj\x86\Debug\SSImportResources.application
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\SSImportResourcesGUI\obj\x86\Debug\SSImportResources.exe
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\SSImportResourcesGUI\obj\x86\Debug\SSImportResources.pdb
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\SSImportResourcesGUI\bin\Debug\SSImportResources.exe.config
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\SSImportResourcesGUI\bin\Debug\ServiceCenter_Connect.dll
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\SSImportResourcesGUI\bin\Debug\ServiceCenter_Connect.pdb
+C:\Users\achinita\Documents\GitHub\ImportResources\Source\SSImportResourcesGUI\bin\Debug\OutSystems.RuntimeCommon.dll
